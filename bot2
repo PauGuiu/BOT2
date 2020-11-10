@@ -1,0 +1,11 @@
+import urllib.request
+
+import sys
+	
+
+from bs4 import BeautifulSoup
+datos = urllib.request.urlopen(‘openwebinars.net’).read().decode()
+soup =  BeautifulSoup(datos)
+tags = soup(‘a’)
+for tag in tags:
+		print(tag.get(‘href’))
