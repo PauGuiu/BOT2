@@ -4,7 +4,6 @@ pipeline {
     stage('paso 1') {
       steps {
         echo 'test1'
-        build 'job1'
       }
     }
 
