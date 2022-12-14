@@ -15,7 +15,7 @@ pipeline {
 node {
   stage(\'Clone repository\') {
     // Clone the repository containing the Python code
-    git \'https://github.com/user/repo.git\'
+    git \'https://github.com/PauGuiu/BOT2\'
   }
 
   stage(\'Read file\') {
