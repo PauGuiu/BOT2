@@ -23,7 +23,7 @@ node {
     def code = readFile(\'PauGuiu/BOT2.py\')
 
     // Print the contents of the file to the Jenkins console
-    println code
+    print code
   }
 
   stage(\'Create new file\') {
