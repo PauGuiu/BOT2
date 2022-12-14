@@ -9,7 +9,7 @@ pipeline {
 
     stage('paso 2') {
       steps {
-        mail(subject: 'a', body: 'a', to: 'pguiu@itbid.com')
+        mail(subject: 'aaa', body: 'aaa', to: 'pguiu@itbid.com', from: 'pguiu@itbid.com')
       }
     }
 
