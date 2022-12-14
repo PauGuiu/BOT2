@@ -10,21 +10,28 @@ pipeline {
     stage('paso 2') {
       steps {
         fileExists 'bot2'
-        sh '''#!/bin/bash 
+        sh '''#!/user/bin/env groovy
 
+node {
+  stage(\'Clone repository\') {
+    // Clone the repository containing the Python code
+    git \'https://github.com/user/repo.git\'
+  }
 
+  stage(\'Read file\') {
+    // Read the contents of the Python file
+    def code = readFile(\'PauGuiu/BOT2.py\')
 
+    // Print the contents of the file to the Jenkins console
+    println code
+  }
 
-# Guardar el nombre del archivo que queremos 
-leer archivo_original="$1"
- # Guardar el nombre del nuevo 
-archivo archivo_nuevo="$2" 
-# Leer el archivo original 
-codigo_original=$(<$archivo_original) 
-# Escribir el código en el nuevo archivo 
-echo -e "$codigo_original" > $archivo_nuevo 
-# Mostrar un mensaje de éxito 
-echo "El archivo \'$archivo_nuevo\' ha sido creado con éxito con el mismo código del archivo \'$archivo_original\'"'''
+  stage(\'Create new file\') {
+    // Write the contents of the original file to a new file
+    writeFile file: \'PauGuiu/nuevo.py\', text: code
+  }
+}
+'''
       }
     }
 
